@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { orderExercise } from "./order/help";
+	import type { orderExercise } from "./order/utils";
 
 	import OrderExercise from "./order/OrderExercise.svelte";
 
