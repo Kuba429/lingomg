@@ -2,7 +2,7 @@
 <a href="/exercise">exercise</a>
 
 <style lang="scss">
-	@use "../variables.scss" as *;
+	@use "$lib/variables.scss" as *;
 	h1 {
 		background-color: $orange-500;
 	}

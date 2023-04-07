@@ -3,8 +3,8 @@
 
 	import OrderExercise from "./order/OrderExercise.svelte";
 
-	const exerciseData = [
-		{ type: "order", answer: "Elo elo 320", question: "Hello hello 320" } as orderExercise,
+	const exerciseData: orderExercise[] = [
+		{ type: "order", answer: "Elo elo 320", question: "Hello hello 320" },
 	];
 	let currentExerciseIndex = 0;
 	let currentExercise = exerciseData[currentExerciseIndex];

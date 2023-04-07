@@ -40,7 +40,7 @@
 </div>
 
 <style lang="scss">
-	@use "../../../variables.scss" as *;
+	@use "$lib/variables.scss" as *;
 	.container {
 		padding: 10px;
 		background-color: $neutral-50;
