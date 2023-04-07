@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Learn polish language</h1>
+<a href="/exercise">exercise</a>
+
+<style lang="scss">
+	@use "../variables.scss" as *;
+	h1 {
+		background-color: $orange-500;
+	}
+</style>
