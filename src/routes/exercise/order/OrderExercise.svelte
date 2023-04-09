@@ -2,9 +2,9 @@
 	import { flip } from "svelte/animate";
 	import { itemAnimation, useOrderExercise, type orderExercise } from "./utils";
 	export let currentExercise: orderExercise;
+	export let goToNext: () => void;
 
 	const { store, toggleWord } = useOrderExercise(currentExercise);
-
 	const [send, receive] = itemAnimation;
 </script>
 
@@ -38,6 +38,7 @@
 		</div>
 	{/each}
 </div>
+<button class="done" on:click={goToNext}>Done</button>
 
 <style lang="scss">
 	@use "$lib/variables.scss" as *;
