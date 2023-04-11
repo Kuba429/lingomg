@@ -17,7 +17,6 @@
 	$: currentExercise = exerciseData[currentExerciseIndex];
 </script>
 
-<h1>Exercise</h1>
 <div class="key-container">
 	{#key currentExercise}
 		<div in:fly={{ x: 1000 }} out:fly={{ x: -200 }}>
