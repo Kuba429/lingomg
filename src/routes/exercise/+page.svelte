@@ -32,6 +32,8 @@
 <style lang="scss">
 	.key-container {
 		display: grid;
+		width: 60%;
+		margin: auto;
 		& div {
 			grid-column-start: 1;
 			grid-column-end: 2;

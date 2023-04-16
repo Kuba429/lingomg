@@ -46,18 +46,29 @@
 
 <style lang="scss">
 	@use "$lib/variables.scss" as *;
+	h1 {
+		color: $neutral-400;
+	}
 	.container {
-		height: 3rem;
+		border-radius: 10px;
+		margin: auto;
+		//width: 50%;
+		min-height: 3rem;
+		height: fit-content;
 		padding: 10px;
 		background-color: $neutral-800;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: 1rem;
+		column-gap: 1rem;
 	}
 	.container.chosen {
 		margin-block: 1rem;
+		gap: 0.2rem;
+		position: relative;
+		padding-top: 10px;
+		justify-content: flex-start;
 	}
 	.item {
 		height: fit-content;
@@ -66,6 +77,7 @@
 		background-color: $neutral-700;
 		cursor: pointer;
 		border: 2px solid $neutral-800;
+		z-index: 2;
 		&:hover {
 			border-color: $neutral-500;
 		}
