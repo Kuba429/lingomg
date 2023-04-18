@@ -2,7 +2,7 @@ import { quintOut } from "svelte/easing";
 import { writable } from "svelte/store";
 import { crossfade } from "svelte/transition";
 export type orderExercise = {
-	type: string;
+	type: "order";
 	question: string;
 	answer: string;
 };
