@@ -34,7 +34,7 @@
 		<div
 			on:click={() => toggleWord(word)}
 			class="item"
-			animate:flip
+			animate:flip={{ duration: 350 }}
 			in:receive={{ key: word }}
 			out:send={{ key: word }}
 		>
