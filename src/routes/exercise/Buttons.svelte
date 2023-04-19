@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onDestroy, onMount } from "svelte";
+	import { browser } from "$app/environment";
+
 	export let goToNext: () => void;
 	export let checkAnswer: () => boolean;
 
@@ -8,6 +11,14 @@
 		if (checkAnswer()) status = "correct";
 		else status = "wrong";
 	};
+
+	const mountCallback = (e: KeyboardEvent) => {
+		if (e.key !== "Enter") return;
+		if (status === "idle") doneHandler();
+		else goToNext();
+	};
+	onMount(() => browser && document.addEventListener("keypress", mountCallback));
+	onDestroy(() => browser && document.removeEventListener("keypress", mountCallback));
 </script>
 
 {#if status === "idle"}
