@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { flip } from "svelte/animate";
+	import Buttons from "../Buttons.svelte";
 	import { itemAnimation, useOrderExercise, type orderExercise } from "./utils";
 	export let currentExercise: orderExercise;
 	export let goToNext: () => void;
 
 	const { store, toggleWord } = useOrderExercise(currentExercise);
 	const [send, receive] = itemAnimation;
+
+	const checkAnswer = () => $store.chosen.join(" ") === currentExercise.answer;
 </script>
 
 <h1>Form the sentence:</h1>
@@ -39,10 +42,7 @@
 		</div>
 	{/each}
 </div>
-<div class="buttons">
-	<button class="skip" on:click={goToNext}>Skip</button>
-	<button class="done" on:click={goToNext}>Done</button>
-</div>
+<Buttons {checkAnswer} {goToNext} />
 
 <style lang="scss">
 	@use "$lib/variables.scss" as *;
@@ -62,6 +62,7 @@
 		align-items: center;
 		flex-wrap: wrap;
 		column-gap: 1rem;
+		row-gap: 0.5rem;
 	}
 	.container.chosen {
 		margin-block: 1rem;
@@ -80,27 +81,6 @@
 		z-index: 2;
 		&:hover {
 			border-color: $neutral-500;
-		}
-	}
-	.buttons {
-		margin-top: 1rem;
-		display: flex;
-		justify-content: flex-end;
-		gap: 1rem;
-	}
-	button {
-		background-color: $neutral-200;
-		color: $neutral-900;
-		border: none;
-		padding: 8px 10px;
-		font-size: 0.8rem;
-		border-radius: 5px;
-		transition: ease 0.1s all;
-		cursor: pointer;
-		border: 1px solid $neutral-800;
-		&:hover {
-			background-color: $neutral-300;
-			border-color: $neutral-100;
 		}
 	}
 </style>
