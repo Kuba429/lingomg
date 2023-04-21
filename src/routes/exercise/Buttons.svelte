@@ -21,25 +21,61 @@
 	onDestroy(() => browser && document.removeEventListener("keypress", mountCallback));
 </script>
 
-{#if status === "idle"}
-	<div class="buttons">
+<div class={`buttons ${status}`}>
+	{#if status === "idle"}
 		<button class="skip" on:click={goToNext}>Skip</button>
 		<button class="done" on:click={doneHandler}>Done</button>
-	</div>
-{:else if status === "correct"}
-	<div>correct</div>
-	<button on:click={goToNext}>next</button>
-{:else}
-	<div>wrong</div>
-{/if}
+	{:else if status === "correct"}
+		<div>
+			<h3>Correct</h3>
+			<p>Well done!</p>
+		</div>
+		<button on:click={goToNext}>Next</button>
+	{:else}
+		<div>
+			<h3>Wrong</h3>
+			<p>Try again</p>
+		</div>
+		<button on:click={goToNext}>Next</button>
+	{/if}
+</div>
 
 <style lang="scss">
 	@use "$lib/variables.scss" as *;
+	$green: #3bbf5e;
+	$green-transparent: #3bbf5e22;
+	$red: #f53b4d;
+	$red-transparent: #f53b4d22;
 	.buttons {
 		margin-top: 1rem;
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
 		gap: 1rem;
+		padding: 1rem;
+		border-radius: 10px;
+		transition: ease all 0.3s;
+		border: 1px solid transparent;
+	}
+	.buttons.correct {
+		background-color: $green-transparent;
+		border-color: $green;
+		justify-content: space-between;
+		& button {
+			align-self: flex-end;
+			background-color: $green;
+			color: white;
+		}
+	}
+	.buttons.wrong {
+		background-color: $red-transparent;
+		border-color: $red;
+		justify-content: space-between;
+		& button {
+			align-self: flex-end;
+			background-color: $red;
+			color: white;
+		}
 	}
 	button {
 		background-color: $neutral-200;
@@ -55,5 +91,12 @@
 			background-color: $neutral-300;
 			border-color: $neutral-100;
 		}
+	}
+	h3 {
+		margin-top: 0;
+	}
+	p {
+		padding: 0;
+		margin: 0;
 	}
 </style>

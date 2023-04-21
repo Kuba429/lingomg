@@ -16,6 +16,7 @@
 <style lang="scss">
 	@use "$lib/variables.scss" as *;
 	input {
+		box-sizing: border-box;
 		width: 100%;
 		padding: 10px;
 		background-color: $neutral-800;
