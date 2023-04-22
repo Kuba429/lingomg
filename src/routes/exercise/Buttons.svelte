@@ -4,6 +4,7 @@
 
 	export let goToNext: () => void;
 	export let checkAnswer: () => boolean;
+	export let currentExerciseAnswer: string;
 
 	let status: "idle" | "correct" | "wrong" = "idle";
 
@@ -34,7 +35,8 @@
 	{:else}
 		<div>
 			<h3>Wrong</h3>
-			<p>Try again</p>
+			<p>Sorry. The answer was:</p>
+			<b>{currentExerciseAnswer}</b>
 		</div>
 		<button on:click={goToNext}>Next</button>
 	{/if}
@@ -93,10 +95,9 @@
 		}
 	}
 	h3 {
-		margin-top: 0;
+		margin: 0;
 	}
-	p {
-		padding: 0;
+	.buttons.correct p {
 		margin: 0;
 	}
 </style>

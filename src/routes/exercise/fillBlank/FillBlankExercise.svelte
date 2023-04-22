@@ -11,7 +11,7 @@
 <h1>Fill in the blank</h1>
 <h3>{currentExercise.question.split("#BLANK#").join("_".repeat(currentExercise.answer.length))}</h3>
 <input type="text" bind:value={inputValue} />
-<Buttons {goToNext} {checkAnswer} />
+<Buttons {goToNext} {checkAnswer} currentExerciseAnswer={currentExercise.answer} />
 
 <style lang="scss">
 	@use "$lib/variables.scss" as *;

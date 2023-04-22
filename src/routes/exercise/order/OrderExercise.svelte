@@ -42,7 +42,7 @@
 		</div>
 	{/each}
 </div>
-<Buttons {checkAnswer} {goToNext} />
+<Buttons {checkAnswer} {goToNext} currentExerciseAnswer={currentExercise.answer} />
 
 <style lang="scss">
 	@use "$lib/variables.scss" as *;
