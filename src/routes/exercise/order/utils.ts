@@ -1,3 +1,4 @@
+import { shuffleArray } from "$lib/arrays";
 import { quintOut } from "svelte/easing";
 import { writable } from "svelte/store";
 import { crossfade } from "svelte/transition";
@@ -5,12 +6,6 @@ export type orderExercise = {
 	type: "order";
 	question: string;
 	answer: string;
-};
-const shuffleArray = <T>(arr: T[]) => {
-	return arr
-		.map((item) => ({ index: Math.random() * 10, data: item }))
-		.sort((a, b) => a.index - b.index)
-		.map((item) => item.data);
 };
 export const useOrderExercise = (question: orderExercise) => {
 	const misleadingWords = shuffleArray([
