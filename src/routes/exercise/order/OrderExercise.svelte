@@ -28,7 +28,7 @@
 		</div>
 	{/each}
 </div>
-<div class="container remaining">
+<div class="container to-choose">
 	{#each $store.toChoose as word (word)}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
