@@ -9,7 +9,9 @@
 </script>
 
 <h1>Fill in the blank</h1>
-<h3>{currentExercise.question.split("#BLANK#").join("_".repeat(currentExercise.answer.length))}</h3>
+<h3 class="sentence">
+	{currentExercise.question.split("#BLANK#").join("_".repeat(currentExercise.answer.length))}
+</h3>
 <input type="text" bind:value={inputValue} />
 <Buttons {goToNext} {checkAnswer} currentExerciseAnswer={currentExercise.answer} />
 

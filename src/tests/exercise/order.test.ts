@@ -26,7 +26,7 @@ describe("order exercise hook", () => {
 	});
 });
 
-describe("integration", () => {
+describe("component", () => {
 	const props = {
 		currentExercise: {
 			type: "order",
