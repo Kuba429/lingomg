@@ -1,7 +1,7 @@
 import { describe, it } from "vitest";
-import { fetchAllExercises, type exercise } from "../../routes/exercise/+page.server";
 import { orderExerciseSchema } from "../../routes/exercise/order/utils";
 import { fillBlankExerciseSchema } from "../../routes/exercise/fillBlank/utils";
+import { fetchAllExercises, type exercise } from "../../routes/exercise/exercises";
 
 describe("questions", () => {
 	it("exercises have proper types", async () => {

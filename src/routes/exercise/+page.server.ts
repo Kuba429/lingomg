@@ -1,31 +1,8 @@
 import { shuffleArray } from "$lib/arrays";
 import { randomInt } from "$lib/random";
 import type { PageServerLoad } from "./$types";
-import type { fillBlankExercise } from "./fillBlank/utils";
-import type { orderExercise } from "./order/utils";
-export type exercise = fillBlankExercise | orderExercise;
-export type exercises = {
-	order: orderExercise[];
-	fillBlank: fillBlankExercise[];
-};
-// simulate api response for now
-const exercises = JSON.stringify({
-	order: [
-		{ type: "order", answer: "Elo elo 320", question: "Hello hello 320" },
-		{ type: "order", answer: "Piję wodę", question: "I'm drinking water" },
-	],
-	fillBlank: [
-		{
-			type: "fillBlank",
-			question: "Mam na #BLANK# Kuba",
-			hint: "name",
-			answer: "imię",
-		},
-	],
-});
-export const fetchAllExercises = () => {
-	return JSON.parse(exercises) as exercises;
-};
+import { fetchAllExercises, type exercise } from "./exercises";
+
 export const load = (async () => {
 	const groups = Object.values(fetchAllExercises());
 	const exercisesToSend: exercise[] = [];
