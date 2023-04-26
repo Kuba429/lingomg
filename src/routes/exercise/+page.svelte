@@ -1,21 +1,12 @@
 <script lang="ts">
-	import type { orderExercise } from "./order/utils";
-	import type { fillBlankExercise } from "./fillBlank/utils";
 	import OrderExercise from "./order/OrderExercise.svelte";
 	import FillBlankExercise from "./fillBlank/FillBlankExercise.svelte";
 	import { fly } from "svelte/transition";
+	import type { PageData } from "./$types";
+	import type { exercise } from "./+page.server";
 
-	type exercise = fillBlankExercise | orderExercise;
-	const exerciseData: exercise[] = [
-		{ type: "order", answer: "Elo elo 320", question: "Hello hello 320" } as orderExercise,
-		{
-			type: "fillBlank",
-			answer: "imię",
-			question: "Mam na #BLANK# Kuba",
-			hint: "name",
-		} as fillBlankExercise,
-		{ type: "order", answer: "Piję wodę", question: "I'm drinking water" } as orderExercise,
-	];
+	export let data: PageData;
+	const exerciseData: exercise[] = data.exerciseData;
 	let currentExerciseIndex = 0;
 	let currentExercise = exerciseData[currentExerciseIndex];
 	const goToNext = () => {
