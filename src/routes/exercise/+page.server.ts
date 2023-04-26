@@ -4,7 +4,7 @@ import type { PageServerLoad } from "./$types";
 import type { fillBlankExercise } from "./fillBlank/utils";
 import type { orderExercise } from "./order/utils";
 export type exercise = fillBlankExercise | orderExercise;
-type exercises = {
+export type exercises = {
 	order: orderExercise[];
 	fillBlank: fillBlankExercise[];
 };
@@ -23,8 +23,11 @@ const exercises = JSON.stringify({
 		},
 	],
 });
+export const fetchAllExercises = () => {
+	return JSON.parse(exercises) as exercises;
+};
 export const load = (async () => {
-	const groups = Object.values(JSON.parse(exercises) as exercises);
+	const groups = Object.values(fetchAllExercises());
 	const exercisesToSend: exercise[] = [];
 	let howManyLeft = 5;
 	while (howManyLeft > 0 && groups.length > 0) {

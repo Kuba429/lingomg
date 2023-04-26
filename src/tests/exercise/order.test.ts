@@ -50,6 +50,7 @@ describe("component", () => {
 
 		// move an item
 		const itemToChoose = container.querySelector(".to-choose>.item")!;
+		expect(itemToChoose).toBeInTheDocument();
 		await userEvent.click(itemToChoose);
 
 		await sleep(1000);

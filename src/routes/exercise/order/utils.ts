@@ -2,11 +2,15 @@ import { shuffleArray } from "$lib/arrays";
 import { quintOut } from "svelte/easing";
 import { writable } from "svelte/store";
 import { crossfade } from "svelte/transition";
-export type orderExercise = {
-	type: "order";
-	question: string;
-	answer: string;
-};
+import { z } from "zod";
+
+export const orderExerciseSchema = z.object({
+	type: z.literal("order"),
+	question: z.string(),
+	answer: z.string(),
+});
+export type orderExercise = z.infer<typeof orderExerciseSchema>;
+
 export const useOrderExercise = (question: orderExercise) => {
 	const misleadingWords = shuffleArray([
 		"jest",
@@ -54,7 +58,7 @@ export const useOrderExercise = (question: orderExercise) => {
 
 export const itemAnimation = crossfade({
 	duration: (d) => Math.sqrt(d * 100),
-	fallback(node, _params) {
+	fallback(node) {
 		const style = getComputedStyle(node);
 		const transform = style.transform === "none" ? "" : style.transform;
 

@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/svelte";
 import Buttons from "../../routes/exercise/Buttons.svelte";
 import { describe, it, expect } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { sleep } from "$lib/sleep";
 
 describe("buttons component", () => {
 	const props = { goToNext: () => {}, checkAnswer: () => true, currentExerciseAnswer: "answer" };
