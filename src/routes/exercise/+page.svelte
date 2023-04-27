@@ -3,7 +3,7 @@
 	import FillBlankExercise from "./fillBlank/FillBlankExercise.svelte";
 	import { fly } from "svelte/transition";
 	import type { PageData } from "./$types";
-	import type { exercise } from "./+page.server";
+	import type { exercise } from "./exercises";
 
 	export let data: PageData;
 	const exerciseData: exercise[] = data.exerciseData;
